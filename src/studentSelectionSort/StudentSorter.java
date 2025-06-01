@@ -11,20 +11,24 @@ public class StudentSorter {
 
         // Outer loop to go through all elements in the list
         for (int i = 0; i < n - 1; i++) {
-            int min_idx = i;
+            int minIdx = i; //UPDATED: camelCase for minIdx
 
             // Inner loop to find min element in the unsorted part of the list
             for (int j = i + 1; j < n; j++) {
-                if (comparator.compare(list.get(j), list.get(min_idx)) < 0) {
-                    min_idx = j;
+                if (comparator.compare(list.get(j), list.get(minIdx)) < 0) {
+                    minIdx = j; //UPDATED: camelCase for minIdx
                 }
             }
 
-            // Swap the found min element with the first unsorted element
-            Student temp = list.get(min_idx);
-            list.set(min_idx, list.get(i));
-            list.set(i, temp);
+            // UPDATED: swap using helper method
+            swap(list, i, minIdx);
         }
+    }
+    //UPDATED: helper method to ecapsulate swap logic
+    private static void swap(ArrayList<Student> list, int i, int j) {
+        Student temp = list.get(j);
+        list.set(j, list.get(i));
+        list.set(i, temp);        
     }
 }
 

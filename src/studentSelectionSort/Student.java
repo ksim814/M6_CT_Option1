@@ -1,19 +1,34 @@
 package studentSelectionSort;
 
+//UPDATE: fields are now private for better encapsulation
 public class Student {
-	int rollno;
-	String name;
-	String address;
-	
-	public Student(int rollno, String name, String address) {
-		this.rollno = rollno;
+	private int rollNo;
+	private String name;
+	private String address;
+
+	// Constructor
+	public Student(int rollNo, String name, String address) {
+		this.rollNo = rollNo;
 		this.name = name;
 		this.address = address;
 		}
+
+	// UPDATED: Getters (encapsulation-friendly access)
+	public int getRollNo() {
+		return rollNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
 	
 	@Override
 	public String toString() {
-		return rollno + " " + name + "" + address;
+		return rollNo + " " + name + " " + address; //UPDATE: fixed spacing and camelCase
 	}
 
 }
